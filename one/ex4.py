@@ -115,7 +115,7 @@ def aplic_combin(t, f):
 
 def list_of_lists(l, f, elem):
     if l == []:
-        return []
+        return elem
     return [functools.reduce(f, l[0])]+list_of_lists(l[1:], f, elem)
 
 
@@ -139,7 +139,7 @@ def mult(x,y):
 def identity(x):
     return 1
 
-# Running code
+# Driver code
 
 l_1 = [1,2,3,4,5,6,7]
 l_2 = [2,4,6]

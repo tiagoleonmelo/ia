@@ -15,6 +15,13 @@ def tail(l):
     return l[1:]
 
 
+def homologos(l1, l2):
+    if l1 == []:
+        return []
+
+    return [(l1[0],l2[0])]+homologos(l1[1:], l2[1:])
+
+
 def min_finder(l):
     if l == []:
         return None
@@ -59,20 +66,20 @@ def separar_min_v2(l):
     return (sl[0], sl[1], sl)
 
 
-# Finish this later
-# def avg_calc(l):
-#     if l == []:
-#         return 0
-    
-#     if len(l) % 2 == 0:
-#         return l[len(l)/2]
+def avg_calc(l):
+    soma, conta = sum_and_count(l)
+    return (soma/conta, l[int(math.floor(conta/2))])
 
-#     else:
-#         return (l[math.ceil(len(l)/2)]+l[math.floor(len(l)/2)])/2
+def sum_and_count(l):
+    if l == []:
+        return (0, 0)
+
+    return (l[0] + sum_and_count(l[1:])[0], 1 + sum_and_count(l[1:])[1])
 
 
 
 l = [2,3,4,5,1]
+l2 = [2,3,4,5,2]
 empty = []
 
 print(head(l))
@@ -80,3 +87,7 @@ print(tail(l))
 print(min_finder(l))
 print(separar_min(l))
 print(min_max(l))
+
+print(avg_calc(l))
+
+print(homologos(l,l2))
