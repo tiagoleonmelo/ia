@@ -1,1 +1,1 @@
-AI practice
+# AI practice and exercise modules
